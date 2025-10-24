@@ -1,0 +1,28 @@
+# Task : Selection Sort 
+
+def selection_sort(arr):
+    # بنجيب طول المصفوفة
+    n = len(arr)
+
+    # هنلف على كل عناصر المصفوفة
+    for i in range(n):
+        # هنحدد العنصر الحالي كأصغر عنصر
+        min_idx = i
+
+        # التكرار على الجزء الغير مرتب في المصفوفة
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_idx]:
+                # تحديث المؤشر على أصغر عنصر
+                min_idx = j
+
+        # تبديل أصغر عنصر تم الحصول عليه مع العنصر الحالي في الموضع
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+
+    return arr
+
+
+# Example 
+data = [64, 25, 12, 22, 11]
+print(f"القائمة الأصلية: {data}")
+sorted_data = selection_sort(data)
+print(f"القائمة بعد الترتيب باستخدام Selection Sort: {sorted_data}")
